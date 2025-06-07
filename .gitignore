@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+.Python
+
+# Jupyter Notebook checkpoint
+.ipynb_checkpoints/
+
+# Model & Data Cache
+*.h5
+*.hdf5
+*.joblib
+
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Railway generated files (optional)
+railway.json
+
+*app/models/multi_model.pkl
