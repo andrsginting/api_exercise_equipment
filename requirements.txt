@@ -6,3 +6,4 @@ numpy
 pydantic
 pandas
 gdown
+google-drive-downloader

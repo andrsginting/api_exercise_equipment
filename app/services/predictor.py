@@ -4,15 +4,14 @@ import numpy as np
 import json
 import os
 from app.utils.preprocessing import preprocess_input
+from app.utils.download_model import download_model
 
-# Optional: pastikan multi_model.pkl tersedia (kalau kamu belum trigger di main.py)
-multi_model_path = "app/models/multi_model.pkl"
-if not os.path.exists(multi_model_path):
-    raise FileNotFoundError(f"{multi_model_path} tidak ditemukan. Pastikan sudah diunduh dengan benar.")
+# Pastikan model multi-label sudah tersedia
+download_model()
 
 # Load model dan data
 goal_model = joblib.load("app/models/goal_model.pkl")
-multi_model = joblib.load(multi_model_path)
+multi_model = joblib.load("app/models/multi_model.pkl")
 scaler = joblib.load("app/models/scaler.pkl")
 mlb_ex = joblib.load("app/models/mlb_ex.pkl")
 mlb_eq = joblib.load("app/models/mlb_eq.pkl")
