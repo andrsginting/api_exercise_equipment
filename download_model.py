@@ -4,7 +4,7 @@ import gdown
 
 def download_model():
     model_path = "app/models/multi_model.pkl"
-    file_id = "1i5o3sWF1dPbt-3rpGcMyBBGrZIPM6CeE"  # ganti dengan ID Google Drive kamu
+    file_id = "1VY0y3NWpjXDXRLd8VlH7MYfXHdRJn3eN"  # ganti dengan ID Google Drive kamu
     url = f"https://drive.google.com/uc?id={file_id}"
 
     if not os.path.exists(model_path):
