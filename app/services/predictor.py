@@ -30,8 +30,23 @@ with open(os.path.join(ASSETS_DIR, "goal_mapping.json"), "r") as f:
     goal_mapping = json.load(f)
 print("Models loaded successfully.")
 
-
-# Sisa kode (fungsi predict_user) TIDAK PERLU diubah
 def predict_user(input_data_model):
-    # ...
-    # ... (kode ini sudah benar)
+    # Panggil fungsi preprocessing yang baru dengan argumen yang benar
+    input_array = prepare_feature_array(input_data_model, scaler)
+
+    # Prediksi Goal (tidak ada perubahan di sini)
+    goal_pred = goal_model.predict(input_array)[0]
+    goal_result = goal_mapping.get(str(goal_pred), "Unknown Goal")
+
+    # Prediksi Multi-label (tidak ada perubahan di sini)
+    multi_pred = multi_model.predict(input_array)[0]
+    ex_len = len(mlb_ex.classes_)
+
+    exercise_result = [mlb_ex.classes_[i] for i, val in enumerate(multi_pred[:ex_len]) if val == 1]
+    equipment_result = [mlb_eq.classes_[i] for i, val in enumerate(multi_pred[ex_len:]) if val == 1]
+
+    return {
+        "fitnessGoal": goal_result,
+        "recommendedExercises": exercise_result,
+        "requiredEquipment": equipment_result
+    }
