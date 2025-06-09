@@ -4,7 +4,7 @@ import numpy as np
 import json
 import os
 from app.utils.preprocessing import preprocess_input
-from app.utils.download_model import download_model
+from app.download_model import download_model
 
 # Pastikan model multi-label sudah tersedia
 download_model()
