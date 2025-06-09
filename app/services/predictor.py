@@ -4,7 +4,7 @@ import numpy as np
 import json
 import os
 from app.utils.preprocessing import prepare_feature_array
-from app.utils.download_model import download_multi_model # <-- Impor fungsi yang benar
+from download_model import download_multi_model # <-- Impor fungsi yang benar
 
 # ====================================================================
 # LANGKAH 1: PASTIKAN MODEL BESAR (multi_model.pkl) SUDAH DI-DOWNLOAD
